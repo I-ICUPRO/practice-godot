@@ -1,8 +1,6 @@
 extends Node
-
-
-var _macg: Array[int] = [534, 32, 87, 837, 1838];
-var _strin_ds: Array[String] = ["testpc1", "testpc2"];
+# var _macg: Array[int] = [534, 32, 87, 837, 1838];
+# var _strin_ds: Array[String] = ["testpc1", "testpc2"];
 
 func _test() -> void:
 	print("sd");
@@ -21,3 +19,9 @@ func _ready() -> void:
 	print("Что я тебе сказал? Позвонить по номеру телефону:", _Dsr._fds);
 	var _test_supportive: Supportive = Supportive.new();
 	print(_test_supportive.useful_function());
+	
+func _numbers_test() -> void:
+	const _const_test: int = 45;
+
+
+#Остановился на if и else
