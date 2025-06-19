@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bubj4vdtwdu03"]
+[gd_scene load_steps=5 format=3 uid="uid://bubj4vdtwdu03"]
 
 [ext_resource type="Script" uid="uid://b2avq2dac8gpa" path="res://script/main.gd" id="1_itxqv"]
 [ext_resource type="Script" uid="uid://caqw1uierxhe8" path="res://script/UI.gd" id="2_v0l8b"]
-[ext_resource type="PackedScene" uid="uid://ntste3gfr7bl" path="res://Box.tscn" id="3_wp4xf"]
+[ext_resource type="PackedScene" uid="uid://ntste3gfr7bl" path="res://Prefab/Box.tscn" id="3_wp4xf"]
+[ext_resource type="PackedScene" uid="uid://1r0tas8n87r5" path="res://Prefab/floor.tscn" id="4_brvut"]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_itxqv")
@@ -20,7 +21,7 @@ offset_bottom = -19.0
 script = ExtResource("2_v0l8b")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.999229, 0.025881, -0.0295118, 0, 0.751841, 0.659344, 0.0392527, 0.658836, -0.751262, -1.95874, 5.51436, -9.06761)
+transform = Transform3D(-0.979066, 0.130834, -0.155923, 0, 0.766046, 0.642786, 0.203542, 0.62933, -0.750009, -2.83497, 7.57707, -10.54)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.350201, -0.454109, 0.819234, 0, 0.87462, 0.48481, -0.936675, -0.169781, 0.306292, 3.48439, 3.61084, 0.244046)
@@ -30,12 +31,11 @@ light_volumetric_fog_energy = 0.0
 light_specular = 3.263
 shadow_enabled = true
 
-[node name="RigidBody3D" parent="." instance=ExtResource("3_wp4xf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.38373, 1.94019, 0.223216)
+[node name="Floor" parent="." instance=ExtResource("4_brvut")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.957076, 0, -3.32166)
 
-[node name="RigidBody3D2" parent="." instance=ExtResource("3_wp4xf")]
-transform = Transform3D(11.8972, 0, 0, 0, 1, 0, 0, 0, 11.1632, -0.886407, -0.388277, -1.23011)
-freeze = true
+[node name="box" parent="." instance=ExtResource("3_wp4xf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.805215, 21.7545, -3.17918)
 
 [connection signal="mouse_entered" from="MyButton" to="MessageLabel" method="_on_my_button_mouse_entered"]
 [connection signal="mouse_exited" from="MyButton" to="MessageLabel" method="_on_my_button_mouse_exited"]

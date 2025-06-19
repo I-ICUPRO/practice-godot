@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://1r0tas8n87r5"]
+
+[ext_resource type="Script" uid="uid://b0feaetnj83tb" path="res://script/floor.gd" id="1_oj3tl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ryoud"]
+size = Vector3(12.4434, 0.222847, 12.4739)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ryoud"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ryoud"]
+albedo_color = Color(0.634532, 0.530655, 0.976237, 1)
+
+[node name="Floor" type="RigidBody3D"]
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00985718, 0.000457764, -0.00671387)
+shape = SubResource("BoxShape3D_ryoud")
+debug_color = Color(0.94902, 0.384314, 0.588235, 1)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(12.4724, 0, 0, 0, 0.0744913, 0, 0, 0, 12.4724, 0, 0, 0)
+mesh = SubResource("BoxMesh_ryoud")
+material = SubResource("StandardMaterial3D_ryoud")
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("1_oj3tl")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0197144, 0.0738564, -0.0134277)
+shape = SubResource("BoxShape3D_ryoud")
+debug_color = Color(0.94902, 0.384314, 0.588235, 1)
+
+[connection signal="area_entered" from="Area3D" to="Area3D" method="_on_area_entered"]
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
