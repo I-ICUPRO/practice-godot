@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bubj4vdtwdu03"]
+[gd_scene load_steps=6 format=3 uid="uid://bubj4vdtwdu03"]
 
 [ext_resource type="Script" uid="uid://b2avq2dac8gpa" path="res://script/main.gd" id="1_itxqv"]
 [ext_resource type="Script" uid="uid://caqw1uierxhe8" path="res://script/UI.gd" id="2_v0l8b"]
 [ext_resource type="PackedScene" uid="uid://ntste3gfr7bl" path="res://Prefab/Box.tscn" id="3_wp4xf"]
 [ext_resource type="PackedScene" uid="uid://1r0tas8n87r5" path="res://Prefab/floor.tscn" id="4_brvut"]
+[ext_resource type="PackedScene" uid="uid://dckn8sado11uh" path="res://Prefab/zone.tscn" id="5_0ha60"]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_itxqv")
@@ -21,7 +22,7 @@ offset_bottom = -19.0
 script = ExtResource("2_v0l8b")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.979066, 0.130834, -0.155923, 0, 0.766046, 0.642786, 0.203542, 0.62933, -0.750009, -2.83497, 7.57707, -10.54)
+transform = Transform3D(-0.984031, -0.0977139, 0.14878, 0, 0.835849, 0.54896, -0.177998, 0.540193, -0.822501, 1.79707, 1.92108, -4.77194)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.350201, -0.454109, 0.819234, 0, 0.87462, 0.48481, -0.936675, -0.169781, 0.306292, 3.48439, 3.61084, 0.244046)
@@ -35,7 +36,13 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.957076, 0, -3.32166)
 
 [node name="box" parent="." instance=ExtResource("3_wp4xf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.805215, 21.7545, -3.17918)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.59288, 2.88013, -2.53985)
+collision_layer = 3
+_inst = 958
+
+[node name="Area3D" parent="." instance=ExtResource("5_0ha60")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.24646, 0.111881, -0.441402)
+collision_layer = 2
 
 [connection signal="mouse_entered" from="MyButton" to="MessageLabel" method="_on_my_button_mouse_entered"]
 [connection signal="mouse_exited" from="MyButton" to="MessageLabel" method="_on_my_button_mouse_exited"]

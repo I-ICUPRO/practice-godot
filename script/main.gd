@@ -1,4 +1,8 @@
 extends Node
+#Гланвый скрипт на котором идут эксперименты
+
+#переключатель для проверка и тестирования возможностей GDScript
+var _swith: bool = false;
 
 # Массивы (пока закомментированы)
 # var _macg: Array[int] = ["534", "32", "87", "837", "1838"]
@@ -19,25 +23,27 @@ class _teWeapon:
 
 # Функция _ready() вызывается автоматически, когда узел готов к работе
 func _ready() -> void:
-	_test()  # Вызов функции _test
 	
-	# Выводим в консоль результат функции _int_test()
-	print("Проверка: ", _int_test())  
-	
-	# Создаём новый объект класса _teWeapon
-	var _Dsr: _teWeapon = _teWeapon.new()
-	# Выводим значение свойства _fds объекта _Dsr
-	print("Что я тебе сказал? Позвонить по номеру телефону:", _Dsr._fds)
-
-	# Создаём объект класса Supportive (другой скрипт)
-	var _test_supportive: Supportive = Supportive.new()
-	# Вызываем у него метод useful_function и выводим результат
-	print(_test_supportive.useful_function())
-
-	# Вызываем функцию с условием
-	_test_if_and_else()
-	# Вызываем функцию с циклами
-	_test_for_and_while()
+	if(_swith == true):
+		_test()  # Вызов функции _test
+		
+		# Выводим в консоль результат функции _int_test()
+		print("Проверка: ", _int_test())  
+		
+		# Создаём новый объект класса _teWeapon
+		var _Dsr: _teWeapon = _teWeapon.new()
+		# Выводим значение свойства _fds объекта _Dsr
+		print("Что я тебе сказал? Позвонить по номеру телефону:", _Dsr._fds)
+		
+		# Создаём объект класса Supportive (другой скрипт)
+		var _test_supportive: Supportive = Supportive.new()
+		# Вызываем у него метод useful_function и выводим результат
+		print(_test_supportive.useful_function())
+		
+		# Вызываем функцию с условием
+		_test_if_and_else()
+		# Вызываем функцию с циклами
+		_test_for_and_while()
 
 # Пример объявления константы (пока не используется)
 func _numbers_test() -> void:
